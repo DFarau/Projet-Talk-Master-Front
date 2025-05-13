@@ -88,3 +88,8 @@ Doriane FARAU (@DFarau)
 Antonin CHARPENTIER (@toutouff)
 Charles LAMBRET (@CharlesLambret)
 Louis FORTRIE (@louisFortrie)
+## Authors
+Doriane FARAU (@DFarau)
+Antonin CHARPENTIER (@toutouff)
+Charles LAMBRET (@CharlesLambret)
+Louis FORTRIE (@louisFortrie)
