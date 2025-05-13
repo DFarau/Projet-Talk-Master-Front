@@ -23,21 +23,13 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.4.0
-        with:
-          version: 9.12.3
-          node-version: 20
-
-      - name: Vérifier les chemins et l'emplacement de pnpm
-        run: |
-          echo $PATH
-          which pnpm
-
-      - name: Installer pnpm via npm avec nettoyage du cache
+      - name: Installer pnpm via npm
         run: |
           npm install -g pnpm@9.12.3
-          pnpm --version
+          pnpm --version  # Vérifie si pnpm est correctement installé
+
+      - name: Vérifier le chemin d'accès à pnpm
+        run: which pnpm 
 
       - name: Install dependencies
         run: pnpm install
