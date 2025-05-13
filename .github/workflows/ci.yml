@@ -29,8 +29,15 @@ jobs:
           version: 9.12.3
           node-version: 20
 
-      - name: Verify pnpm installation
-        run: pnpm --version
+      - name: Vérifier les chemins et l'emplacement de pnpm
+        run: |
+          echo $PATH
+          which pnpm
+
+      - name: Installer pnpm via npm avec nettoyage du cache
+        run: |
+          npm install -g pnpm@9.12.3
+          pnpm --version
 
       - name: Install dependencies
         run: pnpm install
