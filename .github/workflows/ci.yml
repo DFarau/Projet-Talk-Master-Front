@@ -1,0 +1,45 @@
+name: CI - Next.js
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  pre-vercel-checks:
+    name: Pre-Vercel Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Verify commit messages
+        run: npx commitlint --from=HEAD~1 --to=HEAD
+
+      - name: Run unit tests
+        run: pnpm test
+
+      - name: Lint code
+        run: pnpm lint
+
+      - name: Check code formatting
+        run: pnpm format:check
+
+      - name: Build application
+        run: pnpm build
