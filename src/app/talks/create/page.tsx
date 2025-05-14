@@ -1,4 +1,5 @@
-import TalkForm from "@/components/TalkForm";
+'use client';
+import TalkForm from '@/components/TalkForm';
 
 export default function TalkPage() {
   return (
