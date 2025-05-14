@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: 'pnpm'
+          # cache: 'pnpm'
 
       # - name: Install pnpm v9.12.3 globally
       #   run: npm install -g pnpm@9.12.3
