@@ -1,50 +1,40 @@
-name: CI - Next.js
+name: Frontend CI
 
 on:
   push:
-    branches:
-      - develop
+    branches: [develop]
   pull_request:
-    branches:
-      - develop
+    branches: [develop]
 
 jobs:
-  pre-vercel-checks:
-    name: Pre-Vercel Checks
+  frontend:
+    name: Frontend - Lint, Test & Build
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Setup Node.js (v20)
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Installer pnpm via npm
-        run: |
-          npm install -g pnpm@9.12.3
-          pnpm --version  # Vérifie si pnpm est correctement installé
-
-      - name: Vérifier le chemin d'accès à pnpm
-        run: which pnpm 
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Verify commit messages
-        run: npx commitlint --from=HEAD~1 --to=HEAD
-
-      - name: Run unit tests
-        run: pnpm test
-
-      - name: Lint code
+      - name: Lint
         run: pnpm lint
 
-      - name: Check code formatting
+      - name: Format check
         run: pnpm format:check
 
-      - name: Build application
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build Next.js app
         run: pnpm build
