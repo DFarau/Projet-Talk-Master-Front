@@ -21,12 +21,12 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Install pnpm
+      - name: Install pnpm globally
         run: npm install -g pnpm
 
       - name: Verify pnpm installation
         run: pnpm --version
-        
+
       - name: Install dependencies
         run: pnpm install
 
