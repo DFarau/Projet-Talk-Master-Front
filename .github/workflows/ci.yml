@@ -20,11 +20,11 @@ jobs:
         with:
           node-version: 20
 
-      # - name: Install pnpm v9.12.3 globally
-      #   run: npm install -g pnpm@9.12.3
+      - name: Install pnpm v9.12.3 globally
+        run: npm install -g pnpm@9.12.3
 
-      # - name: Verify pnpm installation
-      #   run: pnpm --version
+      - name: Verify pnpm installation
+        run: pnpm --version
 
       # - name: Install dependencies
       #   run: pnpm install
