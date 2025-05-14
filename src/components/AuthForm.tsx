@@ -16,8 +16,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <div className="flex h-screen bg-white">
-      <div className="flex items-center justify-center w-[600px]">
+    <div className="flex w-full flex-col-reverse md:flex-row md:items-center md:justify-center bg-white md:h-screen">
+      <div className="flex items-center justify-center w-full md:w-1/2 md:">
         <div className="bg-white shadow-md border rounded-lg p-8 w-full max-w-md">
           <h1 className="text-[25px] font-light mb-5">Bienvenue sur Task Master</h1>
           <h2 className="text-[31px] font-medium mb-1">
@@ -131,11 +131,18 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-center w-1/2">
+      <div className="hidden md:block flex items-center justify-center w-1/2">
         <img
           src="/assets/login-registration-illustration.png"
           alt="Illustration"
-          className="max-w-full h-auto"
+          className="max-w-full h-auto  md:my-0 "
+        />
+      </div>
+      <div className="md:hidden flex items-center justify-center w-full h-64">
+        <img
+          src="/assets/login-registration-illustration.png"
+          alt="Illustration"
+          className="w-full h-full object-cover md:my-0"
         />
       </div>
     </div>

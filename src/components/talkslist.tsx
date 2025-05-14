@@ -17,12 +17,12 @@ export default function TalksList(TalkListProps: TalkListProps) {
     }
     return (
         <div className="flex flex-col w-full">
-            <div className="flex flex-row items-center justify-between  gap-1 w-1/2">
+            <div className="flex flex-row items-center justify-between  gap-1 w-full md:w-1/2">
                 <MagnifyingGlassIcon className="h-7 w-7 text-gray-500/30" />
                 <input
                     type="text"
                     placeholder="Rechercher..."
-                    className="border border-gray-300 rounded-full px-3 p-1 w-full"
+                    className="border border-gray-300 rounded-full py-2 md:py-1 px-3  w-full"
                 />
                 
             </div>
@@ -40,10 +40,10 @@ export default function TalksList(TalkListProps: TalkListProps) {
                 {isDayActiv && (
                     <>
                     <div className="flex flew-row h-1 bg-gray-200/40 rounded-full w-1/2"></div>
-                    <h3 className="text-lg font-medium py-2">En attente</h3>
-                    <div id="todo" className="w-full flex flex-col gap-2">
+                    <h3 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">En attente</h3>
+                    <div id="todo" className="w-full flex flex-col gap-2 mb-7 md:mb-0">
                         <div className="flex flex-col gap-2">
-                            <div className="w-3/4 flex flex-col gap-2 shadow-md p-3 rounded-lg">
+                            <div className="w-full md:w-3/4 flex flex-col gap-2 shadow-md p-3 rounded-lg">
                                 <div className="w-full flex flex-row gap-2  items-center justify-between">
                                     <div className=" flex flex-row gap-4 items-center justify-center">
                                         
@@ -53,13 +53,11 @@ export default function TalksList(TalkListProps: TalkListProps) {
                                         
                                         
                                             <p>Nom du talk</p>
-                                            <p>Intervenant</p>
+                                            <p className="hidden md:block">Intervenant</p>
                                             
                                     
                                     </div>
-                                    <div className="py-2 w-30 text-center rounded-lg bg-gray-200/40">
-                                                <p>Statut </p>
-                                    </div>
+                                
                                     {isActiv ? 
                                         <ChevronDownIcon className="h-5 w-5 text-gray-500/30 cursor-pointer hover:text-gray-500/70" onClick={handleClick}/>
 
@@ -70,10 +68,12 @@ export default function TalksList(TalkListProps: TalkListProps) {
                                 </div>
                                 {isActiv && (
                                     <>
-                                        <p className="w-full p-2">Description</p>
+                                        <p className="md:hidden w-full px-2">Intervenant</p>
+
+                                        <p className="w-full py-1 px-2 md:py-2">Description</p>
                                         <div className="p-2 gap-2 w-full flex flew-row items-center">
-                                            <button className="bg-blue-800 text-white rounded-lg px-4 py-2 hover:bg-green-500 hover:cursor-pointer text-center">Accepter</button>
-                                            <button className="bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-700 hover:cursor-pointer text-center">Refuser</button>
+                                            <button className="bg-blue-800 text-white rounded-lg px-4 py-2 hover:bg-green-500 hover:cursor-pointer text-center w-1/2 md:w-1/3">Accepter</button>
+                                            <button className="bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-700 hover:cursor-pointer text-center w-1/2 md:w-1/3">Refuser</button>
                                         </div>
                                     </>
                                 
@@ -83,10 +83,10 @@ export default function TalksList(TalkListProps: TalkListProps) {
                             
                         </div>        
                     </div>
-                    <h3 className="text-lg font-medium py-2">Attribués</h3>
-                    <div id="daytasks" className="w-full flex flex-row gap-2">
-                                <div className="flex flex-col items-center w-1/5">
-                                    <h4 className="text-lg font-medium py-2">Salle 1</h4>
+                    <h3 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">Attribués</h3>
+                    <div id="daytasks" className="w-full flex flex-col justify-center md:justify-start md:flex-row gap-2 mb-7 md:mb-0">
+                                <div className="flex flex-col items-center w-full md:w-1/5">
+                                    <h4 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">Salle 1</h4>
                                     <div className="shadow-md p-3 flex-col gap-2 text-center rounded-lg w-full">
                                         <p className="text-gray-300 text-xs ">9h-10h</p>
                                         <h4 className="font-medium">Nom du talk</h4>
@@ -95,8 +95,8 @@ export default function TalksList(TalkListProps: TalkListProps) {
                                     </div>
                                 
                                 </div>
-                                <div className="flex flex-col items-center w-1/5">
-                                    <h4 className="text-lg font-medium py-2">Salle 2</h4>
+                                <div className="flex flex-col items-center w-full md:w-1/5">
+                                    <h4 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">Salle 2</h4>
                                     <div className="shadow-md p-3 flex-col gap-2 text-center rounded-lg w-full">
                                         <p className="text-gray-300 text-xs ">9h-10h</p>
                                         <h4 className="font-medium">Nom du talk</h4>
@@ -105,8 +105,8 @@ export default function TalksList(TalkListProps: TalkListProps) {
                                     </div>
                                     
                                 </div>
-                                <div className="flex flex-col items-center w-1/5">
-                                    <h4 className="text-lg font-medium py-2">Salle 3</h4>
+                                <div className="flex flex-col items-center w-full md:w-1/5">
+                                    <h4 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">Salle 3</h4>
                                     <div className="shadow-md p-3 flex-col gap-2 text-center rounded-lg w-full">
                                         <p className="text-gray-300 text-xs ">9h-10h</p>
                                         <h4 className="font-medium">Nom du talk</h4>
@@ -114,8 +114,8 @@ export default function TalksList(TalkListProps: TalkListProps) {
                                         <p className="text-gray-500 italic text-xs">Intervenant</p>
                                     </div>
                                 </div>
-                                <div className="flex flex-col items-center w-1/5">
-                                    <h4 className="text-lg font-medium py-2">Salle 4</h4>
+                                <div className="flex flex-col items-center w-full md:w-1/5">
+                                    <h4 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">Salle 4</h4>
                                     <div className="shadow-md p-3 flex-col gap-2 text-center rounded-lg w-full">
                                         <p className="text-gray-300 text-xs ">9h-10h</p>
                                         <h4 className="font-medium">Nom du talk</h4>
@@ -124,8 +124,8 @@ export default function TalksList(TalkListProps: TalkListProps) {
                                     </div>
 
                                 </div>
-                                <div className="flex flex-col items-center w-1/5">
-                                    <h4 className="text-lg font-medium py-2">Salle 5</h4>
+                                <div className="flex flex-col items-center w-full md:w-1/5">
+                                    <h4 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">Salle 5</h4>
                                     <div className="shadow-md p-3 flex-col gap-2 text-center rounded-lg w-full">
                                         <p className="text-gray-300 text-xs ">9h-10h</p>
                                         <h4 className="font-medium">Nom du talk</h4>
