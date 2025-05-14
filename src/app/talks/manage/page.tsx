@@ -9,7 +9,7 @@ export default function TalkPage() {
         <div className="w-3/4 flex flex-col h-100 items-start justify-start gap-2" >
             <h1 className="text-2xl font-bold mb-4">Gestion des Talks</h1>
             <p className="text-gray-700 mb-4">{isAdmin ? "Gérez ici l'ensemble des talks." : "Retrouvez ici tous talks et propositions de talk."}</p>
-            <TalkList/>
+            <TalkList type="admin"/>
             
         </div>
     </div>
