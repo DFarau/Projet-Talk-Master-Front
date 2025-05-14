@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-
+import {TrashIcon} from "@heroicons/react/24/solid";
 
 interface TalkFormProps {
   type: "create" | "update" ;
@@ -101,6 +101,18 @@ const TalkForm: React.FC<TalkFormProps> = ({ type }) => {
               : "Mettre à jour le talk"}
 
             </button>
+
+            {isUpdate && (
+              <button
+                type="button"
+                className="w-full flex flex-row items-center justify-center h-12 bg-red-500 hover:bg-red-700 text-[16px] hover:cursor-pointer font-medium text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                onClick={() => {}}
+              >
+                Supprimer le Talk
+                <TrashIcon className="h-5 w-5 inline-block ml-2" />
+              </button>
+            )}
+      
           </form>
           
         </div>
