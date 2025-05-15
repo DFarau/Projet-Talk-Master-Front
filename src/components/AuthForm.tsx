@@ -7,6 +7,7 @@ import axios from 'axios';
 interface AuthFormProps {
   type: 'login' | 'register' | 'forgot-password';
 }
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
   const isLogin = type === 'login';
@@ -24,8 +25,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
 
     console.log('Login data:', { username, password });
 
-    axios.post(
-      'http://localhost:8000/login/',
+    await axios.post(
+      apiUrl + '/login/',
       { username, password },
       {
         withCredentials: true,
