@@ -10,7 +10,7 @@ export function Tooltip() {
 
   return (
     <div
-      className="absolute bg-white border border-gray-300 shadow-lg p-2 rounded z-10"
+      className="absolute bg-white border border-gray-300 shadow-lg p-2 rounded z-10 min-w-70 min-h-20"
       style={{ top: position?.top || 0, left: position?.left || 0 }}
     >
       {talks.length > 0 ? (
