@@ -5,7 +5,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { format, isSameDay } from "date-fns";
 import { fr } from "date-fns/locale";
 import { cn } from "@/lib/utils";
+import { Tooltip } from "@/components/ui/tooltip";
 import { useCalendarLogic } from "@/hooks/Calendar";
+import { useTooltipStore } from "@/stores/useTooltipStore";
 
 type Talk = {
   date: Date;
@@ -40,6 +42,8 @@ export function Calendar({
     getTalksForDay,
   } = useCalendarLogic(talks, userRole);
 
+  const setTooltipData = useTooltipStore((state) => state.setTooltipData);
+
   return (
     <div className={cn("p-4", className)}>
       <div className="flex items-center justify-between mb-4">
@@ -73,6 +77,11 @@ export function Calendar({
           return (
             <div
               key={day.toISOString()}
+              onMouseEnter={() => {
+                setHoveredDay(day);
+                setTooltipData(dayTalks, { top: 40, left: 0 }, userRole);
+              }}
+              onMouseLeave={() => setHoveredDay(null)}
               className="relative"
             >
               <button
@@ -87,6 +96,7 @@ export function Calendar({
               >
                 {day.getDate()}
               </button>
+              {hoveredDay && isSameDay(hoveredDay, day) && <Tooltip />}
             </div>
           );
         })}
