@@ -39,7 +39,7 @@ export default function TalksList(TalkListProps: TalkListProps) {
                 </div>
                 {isDayActiv && (
                     <>
-                    <div className="flex flew-row h-1 bg-gray-200/40 rounded-full w-1/2"></div>
+                    <div className="flex flex-row h-1 bg-gray-200/40 rounded-full w-1/2"></div>
                     <h3 className="text-lg font-medium py-2">En attente</h3>
                     <div id="todo" className="w-full flex flex-col gap-2">
                         <div className="flex flex-col gap-2">
