@@ -39,9 +39,9 @@ export default function TalksList(TalkListProps: TalkListProps) {
                 </div>
                 {isDayActiv && (
                     <>
-                    <div className="flex flew-row h-1 bg-gray-200/40 rounded-full w-1/2"></div>
-                    <h3 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">En attente</h3>
-                    <div id="todo" className="w-full flex flex-col gap-2 mb-7 md:mb-0">
+                        <div className="flex flex-row h-1 bg-gray-200/40 rounded-full w-1/2"></div>
+                        <h3 className="text-xl md:text-lg font-medium py-2 text-center md:text-start">En attente</h3>
+                        <div id="todo" className="w-full flex flex-col gap-2 mb-7 md:mb-0">
                         <div className="flex flex-col gap-2">
                             <div className="w-full md:w-3/4 flex flex-col gap-2 shadow-md p-3 rounded-lg">
                                 <div className="w-full flex flex-row gap-2  items-center justify-between">
@@ -71,10 +71,9 @@ export default function TalksList(TalkListProps: TalkListProps) {
                                         <p className="md:hidden w-full px-2">Intervenant</p>
 
                                         <p className="w-full py-1 px-2 md:py-2">Description</p>
-                                        <div className="p-2 gap-2 w-full flex flew-row items-center">
+                                        <div className="p-2 gap-2 w-full flex flex-row items-center">
                                             <button className="bg-blue-800 text-white rounded-lg px-4 py-2 hover:bg-green-500 hover:cursor-pointer text-center w-1/2 md:w-1/3">Accepter</button>
                                             <button className="bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-700 hover:cursor-pointer text-center w-1/2 md:w-1/3">Refuser</button>
-                                        </div>
                                     </>
                                 
 
