@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { format, isSameDay } from "date-fns";
+import { format, isSameDay, addMonths, subMonths } from "date-fns";
 import { fr } from "date-fns/locale";
 import { cn } from "@/lib/utils";
 import { Tooltip } from "@/components/ui/tooltip";
@@ -44,29 +44,32 @@ export function Calendar({
 
   const setTooltipData = useTooltipStore((state) => state.setTooltipData);
 
+  const previousMonth = subMonths(currentMonth, 1);
+  const nextMonth = addMonths(currentMonth, 1)
+
   return (
-    <div className={cn("p-4", className)}>
-      <div className="flex items-center justify-between mb-4">
-        <button
+    <div className={cn("p-4 flex flex-col h-full", className)}>
+      <div className="flex items-center justify-between mb-4 h-24">
+      <button
           onClick={() => handleMonthChange("previous")}
-          className="p-2 rounded hover:bg-gray-200"
+          className="text-lg font-bold uppercase text-[30px] p-2 rounded-full hover:bg-gray-100 text-gray-400 w-100 cursor-pointer"
         >
-          <ChevronLeft className="h-5 w-5" />
+          {format(previousMonth, "MMMM", { locale: fr })}
         </button>
-        <h2 className="text-lg font-semibold">
-          {format(currentMonth, "MMMM yyyy", { locale: fr })}
+        <h2 className="text-lg font-bold uppercase text-[30px] w-100 flex justify-center pt-12">
+          {format(currentMonth, "MMMM", { locale: fr })}
         </h2>
         <button
           onClick={() => handleMonthChange("next")}
-          className="p-2 rounded hover:bg-gray-200"
+          className="text-lg font-bold uppercase text-[30px] p-2 rounded-full hover:bg-gray-100 text-gray-400 w-100 cursor-pointer"
         >
-          <ChevronRight className="h-5 w-5" />
+          {format(nextMonth, "MMMM", { locale: fr })}
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-2 relative">
+      <div className="grid grid-cols-7 gap-2 flex-grow text-[25px]">
         {["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"].map((day) => (
-          <div key={day} className="text-center font-medium text-gray-600">
+          <div key={day} className="flex flex-col justify-end items-center text-center text-black uppercase font-extrabold">
             {day}
           </div>
         ))}
@@ -79,15 +82,15 @@ export function Calendar({
               key={day.toISOString()}
               onMouseEnter={() => {
                 setHoveredDay(day);
-                setTooltipData(dayTalks, { top: 40, left: 0 }, userRole);
+                setTooltipData(dayTalks, { top: 80, left: -40 }, userRole);
               }}
               onMouseLeave={() => setHoveredDay(null)}
-              className="relative"
+              className="relative flex items-center justify-center"
             >
               <button
                 onClick={() => onDateChange(day)}
                 className={cn(
-                  "p-2 rounded text-center w-full",
+                  "w-10 h-10 rounded-full flex items-center justify-center text-sm transition-colors hover:bg-blue-100 cursor-pointer",
                   selectedDate?.toDateString() === day.toDateString()
                     ? "ring-2 ring-blue-500"
                     : "",
