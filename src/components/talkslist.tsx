@@ -71,7 +71,7 @@ export default function TalksList(TalkListProps: TalkListProps) {
                                 {isActiv && (
                                     <>
                                         <p className="w-full p-2">Description</p>
-                                        <div className="p-2 gap-2 w-full flex flew-row items-center">
+                                        <div className="p-2 gap-2 w-full flex flex-row items-center">
                                             <button className="bg-blue-800 text-white rounded-lg px-4 py-2 hover:bg-green-500 hover:cursor-pointer text-center">Accepter</button>
                                             <button className="bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-700 hover:cursor-pointer text-center">Refuser</button>
                                         </div>
