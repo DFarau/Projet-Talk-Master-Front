@@ -1,4 +1,4 @@
 {
-  "src/*.{js,ts,tsx}": ["next lint --fix", "prettier --write"],
+  "src/**/*.{js,ts,tsx}": ["next lint --dir src --fix", "prettier --write"],
   "*.{json,md,yml,yaml}": ["prettier --write"]
 }

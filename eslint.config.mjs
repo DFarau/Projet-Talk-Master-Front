@@ -18,6 +18,11 @@ const eslintConfig = [
     rules: {
       'prettier/prettier': 'warn', // ou "error" selon ta tolérance
     },
+    settings: {
+      next: {
+        rootDir: ['./src'],
+      },
+    },
   },
 ];
 
